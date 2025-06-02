@@ -29,7 +29,7 @@ public class CardTrick {
         }
 
         Card luckyCard = new Card();
-        luckyCard.setValue(7);
+        luckyCard.setValue(10);
         luckyCard.setSuit("Hearts");
 
         boolean found = false;
