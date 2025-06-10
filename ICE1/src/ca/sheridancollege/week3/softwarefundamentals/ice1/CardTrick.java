@@ -1,15 +1,11 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package ca.sheridancollege.week3.softwarefundamentals.ice1;
 
 import java.util.Random;
+import java.util.Scanner;
 
 /**
  * A class that fills a magic hand of 7 cards with random Card Objects
- * and checks if a hardcoded lucky card is present in the hand.
+ * and checks if a user-entered card is present in the hand.
  * 
  * @author dancye
  * @modifier Nisarg Ambade, Student# 991808689 - June 1, 2025
@@ -28,30 +24,38 @@ public class CardTrick {
             magicHand[i] = c;
         }
 
-        Card luckyCard = new Card();
-        luckyCard.setValue(10);
-        luckyCard.setSuit("Hearts");
+        // User Input for Magic Hand
+        Scanner input = new Scanner(System.in);
+        System.out.print("Enter the value of your card (1 to 13): ");
+        int userValue = input.nextInt();
+        input.nextLine(); // consume newline
+        System.out.print("Enter the suit of your card (Hearts, Diamonds, Clubs, Spades): ");
+        String userSuit = input.nextLine();
+
+        Card userCard = new Card();
+        userCard.setValue(userValue);
+        userCard.setSuit(userSuit);
 
         boolean found = false;
         for (Card card : magicHand) {
-            if (card.getValue() == luckyCard.getValue() &&
-                card.getSuit().equalsIgnoreCase(luckyCard.getSuit())) {
+            if (card.getValue() == userCard.getValue() &&
+                card.getSuit().equalsIgnoreCase(userCard.getSuit())) {
                 found = true;
                 break;
             }
         }
 
         if (found) {
-            System.out.println("Lucky card found in the magic hand!");
+            System.out.println("Your card was found in the magic hand!");
         } else {
-            System.out.println("Lucky card NOT found in the magic hand.");
+            System.out.println("Your card was NOT found in the magic hand.");
         }
 
-        System.out.println("Cards in the magic hand:");
+        System.out.println("\nCards in the magic hand:");
         for (Card card : magicHand) {
             System.out.println(card.getValue() + " of " + card.getSuit());
         }
 
-        System.out.println("Lucky Card: " + luckyCard.getValue() + " of " + luckyCard.getSuit());
+        System.out.println("\nYour Card: " + userCard.getValue() + " of " + userCard.getSuit());
     }
 }
