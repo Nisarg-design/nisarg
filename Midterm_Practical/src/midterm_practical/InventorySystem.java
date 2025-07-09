@@ -9,7 +9,7 @@ import java.util.Scanner;
 
 
 /**
- *
+ * Edited using github editing option
  * @author Nisarg
  */
 public class InventorySystem {
