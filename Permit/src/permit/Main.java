@@ -7,7 +7,7 @@ package permit;
 import java.util.Scanner;
 
 /**
- *
+ * Added Permit system with category selection and validation
  * @author Nisarg
  */
 public class Main {
